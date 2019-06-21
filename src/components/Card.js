@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import { getGenreAsync } from '../actions/index';
 
 class Card extends PureComponent {
 
@@ -8,24 +9,26 @@ class Card extends PureComponent {
         let html = [];
         let fullStars = Math.floor(rating);
         for(let i=0; i<fullStars; i++){
-            html.push(<i className="fa fa-star" aria-hidden="true" key=`star-${i}` ></i>);
+            html.push(<i className="fa fa-star" aria-hidden="true" key={`star-o-${i}`}></i>);
         }
         if(rating-fullStars !== 0){
-            html.push(<i className="fa fa-star-half-o" aria-hidden="true" key= `half-star-${i}`></i>);
+            html.push(<i className="fa fa-star-half-o" aria-hidden="true" key={`star-half`}></i>);
             fullStars++;
         }
         for(let j=fullStars; j < 5 ; j++){
-            html.push(<i className="fa fa-star-o" aria-hidden="true" key= `empty-star-${i}` ></i>);
+            html.push(<i className="fa fa-star-o" aria-hidden="true"  key={`star-null-${j}`}></i>);
         }
+
+        console.log(html);
         return html;
     }
 
     render(){
-        const {movie} = this.props;
+        const {movie,genreList} = this.props;
         return (
             <div className="card">
                 <div className="card_poster">
-                    <img src={movie.poster_path}/>
+                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}/>
                 </div>
                 <div className="card_details">
                     <div>
@@ -34,16 +37,20 @@ class Card extends PureComponent {
                     <div>
                         <p className="genres">
                             {
-                                movie.genres.join(", ");
+                                movie.genre_ids.map((id) =>
+                                    genreList[id]
+                            )
                             }
                         </p>
                     </div>
                     <div className="wrapper_details_footer">
                         <div className="star_rating">
-                            {this.renderStarRating(movie.vote_average).join()}
+                            {
+                                this.renderStarRating(movie.vote_average)
+                            }
                         </div>
                         <div className="more-link">
-                            <Link "/" >Show More...</Link>
+                            <Link to='/' >Show More</Link>
                         </div>
                     </div>
                 </div>
@@ -52,4 +59,10 @@ class Card extends PureComponent {
     }
 }
 
-export default Card;
+function mapStateToProps(state) {
+    return {
+        getGenre: () => dispatch(getGenreAsync())
+    };
+}
+
+export default connect(mapStateToProps)(Card);

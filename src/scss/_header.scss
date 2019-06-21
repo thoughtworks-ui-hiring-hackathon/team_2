@@ -1,11 +1,12 @@
 .header {
-    position: fixed;
+    position: relative;
     top: 0;
     background: #343a40 !important;
     width: 100vw;
     height: 40px;
     display: flex;
     align-items: center;
+    margin-bottom: 15px;
 
     .nav-link {
         color: white;

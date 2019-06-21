@@ -1,12 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import CardList from '../components/CardList';
 
 class TrendingMovies extends React.PureComponent {
     constructor(props) {
         super(props);
     }
     render() {
-        return null;
+        return (
+            <CardList
+            list = {this.props.trendingMovies}
+            />
+        );
     }
 }
 
