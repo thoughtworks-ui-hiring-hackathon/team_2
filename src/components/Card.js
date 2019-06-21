@@ -49,7 +49,7 @@ class Card extends PureComponent {
                             }
                         </div>
                         <div className="more-link">
-                            <Link to={`/movie-details/${movie.id}`} >Show More</Link>
+                            <Link to={`/movie-detail/${movie.id}`} >Show More</Link>
                         </div>
                     </div>
                 </div>
