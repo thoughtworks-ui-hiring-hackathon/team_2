@@ -1,0 +1,23 @@
+.header {
+    position: fixed;
+    top: 0;
+    background: #343a40 !important;
+    width: 100vw;
+    height: 40px;
+    display: flex;
+    align-items: center;
+
+    .nav-link {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        color: rgba(255, 255, 255, .5);
+
+        &:hover {
+            color: rgba(255, 255, 255, .75);
+        }
+        // &.active {
+        //     color: rgba(255, 255, 255, .95);
+        // }
+    }
+}
