@@ -3,12 +3,18 @@
     @include container;
     .controls{
         .search{
+            margin: 0 auto;
+            text-align: center;
             input{
-                width:200px;
-                padding: 5px 10px;
+                width:500px;
+                padding: 10px 15px;
+                font-size: 18px;
                 bordeR:1 px solid #e3e3e3;
             }
         }
+    }
+    .results{
+        margin: 20px;
     }
 
 }

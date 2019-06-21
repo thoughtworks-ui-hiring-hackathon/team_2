@@ -1,5 +1,4 @@
 import React from 'react';
-import '../scss/_movie-info.scss';
 
 const renderStarRating = (rating) => {
     let html = [];
@@ -35,7 +34,7 @@ const MovieInfo = (props) => {
                 <div className="overview info">
                     <div>
                         <h3>Genre</h3>
-                        <div>{data.genres && data.genres.map(c => <span>{c.name}, </span>)}</div>
+                        <div>{data.genres && data.genres.map(c => <span key={c.id}>  {c.name}, </span>)}</div>
                     </div>
                     <div>
                         <h3>Cast</h3>

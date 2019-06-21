@@ -31,12 +31,12 @@ class Card extends PureComponent {
                 </div>
                 <div className="card_details">
                     <div>
-                        <h2> {movie.original_title}</h2>
+                        <h2> {movie.original_title ? movie.original_title: 'NO Title'}</h2>
                     </div>
                     <div>
                         <p className="genres">
                             {
-                                movie.genre_ids.map((id) =>
+                                movie.genre_ids && movie.genre_ids.map((id) =>
                                     <span key={id}>{`${genreList[id]}, `}</span>
                             )
                             }

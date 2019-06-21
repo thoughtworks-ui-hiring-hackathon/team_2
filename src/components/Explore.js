@@ -12,6 +12,7 @@ class Explore extends Component {
     }
 
     render() {
+        let text = "No RESULTS";
         return (
             <div className="explore">
                 <div className="controls">
@@ -23,9 +24,10 @@ class Explore extends Component {
                 </div>
                 <div className="results">
                     {
-                        this.props.movies && <CardList
+                        this.props.movies ? <CardList
                             list={this.props.movies}
-                        />
+                            />
+                            : "NO RESULTS FOUND!"
                     }
                 </div>
             </div>
