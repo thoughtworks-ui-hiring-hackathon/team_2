@@ -6,6 +6,7 @@ class Card extends PureComponent {
 
     renderStarRating = (rating) => {
         let html = [];
+        rating = rating/2;
         let fullStars = Math.floor(rating);
         for(let i=0; i<fullStars; i++){
             html.push(<i className="fa fa-star" aria-hidden="true" key={`star-o-${i}`}></i>);
@@ -48,7 +49,7 @@ class Card extends PureComponent {
                             }
                         </div>
                         <div className="more-link">
-                            <Link to='/' >Show More</Link>
+                            <Link to={`/movie-details/${movie.id}`} >Show More</Link>
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CardList from '../components/CardList';
 
+
 class TrendingMovies extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -9,7 +10,7 @@ class TrendingMovies extends React.PureComponent {
     render() {
         return (
             <CardList
-            list = {this.props.trendingMovies}
+            list = {this.props.trendingMovies.splice(0, 4)}
             />
         );
     }

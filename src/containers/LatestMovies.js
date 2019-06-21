@@ -3,13 +3,11 @@ import { connect } from 'react-redux';
 import CardList from '../components/CardList';
 
 class LatestMovies extends React.PureComponent {
-    constructor(props) {
-        super(props);
-    }
+
     render() {
         return (
             <CardList
-            list = {this.props.latestMovies}
+            list = {this.props.latestMovies.splice(0, 4)}
             />
         );
     }
