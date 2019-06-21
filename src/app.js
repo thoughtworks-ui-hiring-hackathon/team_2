@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './containers/Home';
 import Explore from './components/Explore';
 import Header from './components/Header';
-
+import MovieDetail from './containers/MovieDetail';
 
 const App = () => {
 	return (
@@ -11,7 +11,7 @@ const App = () => {
 			<Header />
 			<Route path="/" exact component={Home} />
 			<Route path="/explore" component={Explore} />
-			<Route path="/movie-detail/:id" component={Explore} />
+			<Route path="/movie-detail/:id" component={MovieDetail} />
 		</Router>
 	);
 }

@@ -1,0 +1,27 @@
+.details {
+    padding: 10px;
+    display: flex;
+}
+.overview {
+    flex: 0.5;
+    padding-right: 30px;
+    &.info {
+        background: #ddd;
+        border-radius: 4px;
+        padding: 10px;
+    }
+}
+.banner {
+    background-repeat: no-repeat;
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+}
+
+img {
+    width: 100%;
+}
+
+.most-watched {
+    padding: 10px;
+}
