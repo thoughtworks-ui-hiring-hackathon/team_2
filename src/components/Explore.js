@@ -17,7 +17,7 @@ class Explore extends Component {
             <div className="explore">
                 <div className="controls">
                     <div className="search">
-                        <input type="text" value={this.props.query} onChange={this.searchHandler} />
+                        <input type="text" placeholder="Search Here..." value={this.props.query} onChange={this.searchHandler} />
                     </div>
                     <div className="filter">
                     </div>

@@ -36,7 +36,7 @@ class Card extends PureComponent {
                     <div>
                         <p className="genres">
                             {
-                                movie.genre_ids && movie.genre_ids.map((id) =>
+                                Object.keys(genreList).length > 0 && movie.genre_ids.map((id) =>
                                     <span key={id}>{`${genreList[id]}, `}</span>
                             )
                             }

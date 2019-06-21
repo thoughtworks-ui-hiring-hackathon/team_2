@@ -1,7 +1,7 @@
 import { UPDATE_QUERY } from '../actions';
 
 const intialState = {
-    movies: []
+    query: ''
 }
 export default (state = intialState, action) => {
     switch (action.type) {

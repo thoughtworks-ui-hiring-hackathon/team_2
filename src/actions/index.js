@@ -76,7 +76,7 @@ export function queryUpdate(query){
 	}
 }
 
-export function getSearchAsync(search_query) {
+export function getSearchAsync(search_query = 'marvel') {
 	const url = `https://api.themoviedb.org/3/search/multi?api_key=${api_value}&language=en-US&query=${search_query}&page=1&include_adult=false`
 	return dispatch => {
 		fetch(url)
