@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
-import { getSearchAsync, queryUpdate} from '../actions/index';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { getSearchAsync, queryUpdate } from '../actions/index';
 import CardList from './CardList';
 
 class Explore extends Component {
@@ -11,12 +11,12 @@ class Explore extends Component {
         this.props.getSearchResult(e.target.value);
     }
 
-    render(){
+    render() {
         return (
             <div className="explore">
                 <div className="controls">
                     <div className="search">
-                        <input type="text" value={this.props.query} onChange={this.searchHandler}/>
+                        <input type="text" value={this.props.query} onChange={this.searchHandler} />
                     </div>
                     <div className="filter">
                     </div>
@@ -24,7 +24,7 @@ class Explore extends Component {
                 <div className="results">
                     {
                         this.props.movies && <CardList
-                        movies = {this.props.movies}
+                            list={this.props.movies}
                         />
                     }
                 </div>
@@ -33,7 +33,6 @@ class Explore extends Component {
     }
 }
 function mapStateToProps(state) {
-    console.log(state);
     return {
         query: state.query,
         movies: state.searchResult.result
@@ -42,7 +41,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getSearchResult : (query) => dispatch(getSearchAsync(query))
+        getSearchResult: (query) => dispatch(getSearchAsync(query))
     };
 }
 

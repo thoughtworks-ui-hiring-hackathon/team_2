@@ -5,6 +5,7 @@ class CardList extends PureComponent {
 
     render(){
         const {list} = this.props;
+        console.log(list);
         return (
             <div className="card_list">
                 {list && list.map((movie) =>
