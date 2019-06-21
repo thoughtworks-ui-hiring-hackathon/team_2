@@ -9,7 +9,7 @@ class MostWatched extends React.PureComponent {
     render() {
         return (
             <CardList
-            list = {this.props.mostWatched}
+            list = {this.props.mostWatched.splice(0, 4)}
             />
         );
     }
