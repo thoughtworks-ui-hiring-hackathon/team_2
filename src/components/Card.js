@@ -23,7 +23,6 @@ class Card extends PureComponent {
 
     render(){
         const {movie,genreList} = this.props;
-        console.log(genreList);
         return (
             <div className="card">
                 <div className="card_poster">
@@ -37,7 +36,7 @@ class Card extends PureComponent {
                         <p className="genres">
                             {
                                 movie.genre_ids.map((id) =>
-                                    <span>{`${genreList[id]}, `}</span>
+                                    <span key={id}>{`${genreList[id]}, `}</span>
                             )
                             }
                         </p>

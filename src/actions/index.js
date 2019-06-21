@@ -4,6 +4,7 @@ export const GET_TRENDING_MOVIES_SUCCESS = 'GET_LATEST_MOVIES_SUCCESS';
 export const GET_MOST_WATCHED_MOVIES_SUCCESS = 'GET_LATEST_MOVIES_SUCCESS';
 export const GET_MOVIE_DETAIL_SUCCESS = 'GET_MOVIE_DETAIL_SUCCESS';
 export const GET_GENRE_SUCCESS = 'GET_GENRE_SUCCESS';
+export const GET_SIMILAR_MOVIES_SUCCESS = 'GET_SIMILAR_MOVIES_SUCCESS';
 
 export function getLatestMoviesAsync() {
 	const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_value}&language=en-US&page=1`
@@ -35,12 +36,22 @@ export function getMostWatchedMoviesAsync() {
 	};
 }
 
+export function getSimilarMoviesAsync(id) {
+	const url = `  https://api.themoviedb.org/3/movie/${id}/similar?api_key=${api_value}&language=en-US&page=1`
+	return dispatch => {
+		fetch(url)
+			.then((response) => response.json())
+			.then((data) => dispatch({ type: GET_SIMILAR_MOVIES_SUCCESS, payload: data.results }))
+			.catch((e) => console.log("Error: " + e));
+	};
+}
+
 export function getMovieDetailsAsync(id) {
 	const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${api_value}&language=en-US&append_to_response=credits`
 	return dispatch => {
 		fetch(url)
 			.then((response) => response.json())
-			.then((data) => dispatch({ type: GET_MOVIE_DETAIL_SUCCESS, payload: data.results }))
+			.then((data) => dispatch({ type: GET_MOVIE_DETAIL_SUCCESS, payload: data }))
 			.catch((e) => console.log("Error: " + e));
 	};
 }
