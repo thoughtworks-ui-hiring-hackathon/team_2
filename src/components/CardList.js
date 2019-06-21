@@ -9,19 +9,17 @@ class CardList extends PureComponent {
         const {list} = this.props;
         return (
             <div className="card_list">
-                {
-                    list.map((movie) => {
+                {list.map((movie) =>
                         <Card
                         key={movie.id}
                         movie = {movie}
                         />
-                    })
+                    )
                 }
             </div>
 
         );
     }
-
-
-
 }
+
+export default CardList;

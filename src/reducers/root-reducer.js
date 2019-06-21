@@ -1,6 +1,13 @@
 import {combineReducers} from 'redux';
-import simpleReducer from './simple-reducer';
+import latestMovies from './latestMovies';
+import trendingMovies from './trendingMovies';
+import mostWatched from './mostWatched';
+import genre from './genre';
+
 
 export default combineReducers({
-	simpleReducer
+	latestMovies,
+	trendingMovies,
+	mostWatched,
+	genre
 });
