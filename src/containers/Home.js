@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { getLatestMoviesAsync } from '../actions/index';
 
 class Home extends React.PureComponent {
     constructor(props) {
         super(props);
+        props.getLatestMovies();
     }
     render() {
         return null;
@@ -15,7 +17,9 @@ function mapStateToProps() {
 }
 
 function mapDispatchToProps(dispatch) {
-    return {};
+    return {
+        getLatestMovies: () => dispatch(getLatestMoviesAsync())
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import simpleReducer from './simple-reducer';
+import latestMovies from './latestMovies';
 
 export default combineReducers({
-	simpleReducer
+	latestMovies
 });
