@@ -1,7 +1,6 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import { getGenreAsync } from '../actions/index';
 
 class Card extends PureComponent {
 
@@ -19,12 +18,12 @@ class Card extends PureComponent {
             html.push(<i className="fa fa-star-o" aria-hidden="true"  key={`star-null-${j}`}></i>);
         }
 
-        console.log(html);
         return html;
     }
 
     render(){
         const {movie,genreList} = this.props;
+        console.log(genreList);
         return (
             <div className="card">
                 <div className="card_poster">
@@ -38,7 +37,7 @@ class Card extends PureComponent {
                         <p className="genres">
                             {
                                 movie.genre_ids.map((id) =>
-                                    genreList[id]
+                                    <span>{`${genreList[id]}, `}</span>
                             )
                             }
                         </p>
@@ -61,7 +60,7 @@ class Card extends PureComponent {
 
 function mapStateToProps(state) {
     return {
-        getGenre: () => dispatch(getGenreAsync())
+        genreList: state.genre.genre
     };
 }
 

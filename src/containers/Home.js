@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getLatestMoviesAsync, getTrendingMoviesAsync, getMostWatchedMoviesAsync } from '../actions/index';
+import { getLatestMoviesAsync, getTrendingMoviesAsync, getMostWatchedMoviesAsync, getGenreAsync } from '../actions/index';
 import LatestMovies from './LatestMovies';
 import TrendingMovies from './TrendingMovies';
 import MostWatched from './MostWatched';
@@ -11,6 +11,7 @@ class Home extends React.PureComponent {
         props.getLatestMovies();
         props.getTrendingMovies();
         props.getMostWatchedMovies();
+        props.getGenre();
     }
     render() {
         return (
@@ -40,7 +41,8 @@ function mapDispatchToProps(dispatch) {
     return {
         getLatestMovies: () => dispatch(getLatestMoviesAsync()),
         getTrendingMovies: () => dispatch(getTrendingMoviesAsync()),
-        getMostWatchedMovies: () => dispatch(getMostWatchedMoviesAsync())
+        getMostWatchedMovies: () => dispatch(getMostWatchedMoviesAsync()),
+        getGenre : () => dispatch(getGenreAsync())
     };
 }
 
